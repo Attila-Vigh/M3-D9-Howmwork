@@ -1,17 +1,48 @@
-window.onload = function() {
-    console.log( "from the other side");
-    const productId = URLSearchParams( window.location.search).get("id")
-    console.log( productId );
+const url = "https://striveschool-api.herokuapp.com/api/product/"
+console.log( "from the other side");
+const productId = new URLSearchParams( window.location.search).get("id")
+is_productIdURL = productId ? url + productId : url
+console.log( productId )
+const method = is_productIdURL ? "PUT" : "POST"
+
+window.onload = async ( ) => {
+    console.log( productId )
+    if ( productId ) {
+        console.log( productId )
+
+        const response = await fetch(is_productIdURL, 
+            {
+                method,
+                headers: {
+                    "Authorization": AUTHORIZATION_PRODUCTS,
+                    "Content-Type": "application/json",
+        }})
+        const { 
+            name,
+            description,
+            brand,
+            imageUrl,
+            price, 
+        } = await response.json()
+        
+        document.querySelector(  "#name"         ).value = name
+        document.querySelector(  "#description"  ).value = description
+        document.querySelector(  "#brand"        ).value = brand
+        document.querySelector(  "#img-src"      ).value = imageUrl
+        document.querySelector(  "#price"        ).value = price
+        
+        document.querySelector(  "#submit"  ).innerText = "Update Product"
+    }
 
 }
 
-const handleAddProduct = async (event, method) => {
+const handleNewProduct = async (event) => {
     event.preventDefault()
     
-    const url = "https://striveschool-api.herokuapp.com/api/product/"
+    // const url = "https://striveschool-api.herokuapp.com/api/product/"
 
 
-    const createEvent = {
+    const  newProduct  = {
         name        : document.querySelector(  "#name"        ).value,
         description : document.querySelector(  "#description" ).value,
         brand       : document.querySelector(  "#brand"       ).value,
@@ -21,7 +52,7 @@ const handleAddProduct = async (event, method) => {
 
     const requestObj = {
         method: method,
-        body: JSON.stringify(createEvent),
+        body: JSON.stringify( newProduct ),
         headers: {
             "Authorization": AUTHORIZATION_PRODUCTS,
             "Content-Type": "application/json",
@@ -29,11 +60,11 @@ const handleAddProduct = async (event, method) => {
     }
 
     try{
-        const response = await fetch(url, requestObj)
+        const response = await fetch(is_productIdURL, requestObj)
         
         if (response.ok){
-            const newEvent = await response.json()
-            alert("Product created successfully with an id of " + newEvent._id)
+            const newProduct = await response.json()
+            alert(`Product successfully ${ method === "PUT" ? "updated" : "created"}`)
         } 
         else {
             if (response.status >= 400 && response.status < 500)

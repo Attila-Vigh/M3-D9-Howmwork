@@ -1,10 +1,16 @@
 const url = "https://striveschool-api.herokuapp.com/api/product/"
 const productId = new URLSearchParams(window.location.search).get("id")
-document.body.style.background = "red"
+// document.body.style.background = "red"
 window.onload = async () => {
     try
     {
-        const response = await fetch(url + productId, { method: "GET", headers: { 'Content-Type': 'application/json', 'authorization': AUTHORIZATION_PRODUCTS}})
+        const response = await fetch(url + productId, 
+            { 
+                method: "GET", 
+                headers: { 
+                    'Content-Type': 'application/json', 
+                    'authorization': AUTHORIZATION_PRODUCTS
+        }})
         if (response.ok)
         {
             const { _id, name, description, brand, imageUrl, price, userId, createdAt, updatedAt, } = await response.json()
@@ -16,7 +22,7 @@ window.onload = async () => {
                     <div class="card" style="max-width: 38rem;">
                         <img src=${ imageUrl } class="" alt="">
                         <div class="card-body">
-                        
+
                             <h5 class="card-title">          ${ name        }</h5>
                             <p class="card-text">Brand:      ${ brand       }</p>
                             <p class="card-text">            ${ description }</p>
