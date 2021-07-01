@@ -8,6 +8,6 @@ const nav =
         </li>
     </ul>
 
-    <h1 class="text-center">M3-D8-Homework</h1>
+    <h1 class="text-center">M3-D9-Homework</h1>
     `
 document.body.insertAdjacentHTML( "afterbegin", nav)

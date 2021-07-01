@@ -8,7 +8,7 @@ const displayProductTable = (productList) => {
     const container = document.querySelector(".product-list-table tbody")
 
     const table = productList.map(
-        ({ _id, name, description, brand, imageUrl, price, userId, createdAt, updatedAt, }) => `
+        ({ _id, name, description, brand, imageUrl, price }) => `
 
             <tr>
                 <th scope="row">${ name          }</th>
