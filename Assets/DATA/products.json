@@ -1,0 +1,30 @@
+[
+    {
+        "name": "Phone",
+        "description": "A beautiful phone",
+        "brand": "The Phone Company",
+        "imageUrl": "https://images-na.ssl-images-amazon.com/images/I/61aw1M-CqyL._AC_SL1024_.jpg",
+        "price": 19999
+    },
+    {
+        "name": "The RED Phone",
+        "description": "How to call the president on the phone",
+        "brand": "The Super Phone Company",
+        "imageUrl": "https://image.shutterstock.com/image-photo/old-telephone-rotary-dial-260nw-384721735.jpg",
+        "price": 2999999
+    },
+    {
+        "name": "debrief Phone ",
+        "description": "A beautiful phone",
+        "brand": "The Phone Company",
+        "imageUrl": "https://images-na.ssl-images-amazon.com/images/I/61aw1M-CqyL._AC_SL1024_.jpg",
+        "price": 52555
+    },
+    {
+        "name": "Zoma Phone",
+        "description": "VINTAGE TELEPHONE DECOR - Dreaming of Paris but live in the burbs? Add vintage Victorian steampunk styling with our reproduction antique telephone named after the famous Eiffel Tower in France",
+        "brand": "The Phone Company",
+        "imageUrl": "https://images-na.ssl-images-amazon.com/images/I/61GNq8QUeFL._AC_SY355_.jpg",
+        "price": 6556
+    }
+]
